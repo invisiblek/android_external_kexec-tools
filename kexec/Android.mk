@@ -8,6 +8,7 @@ LOCAL_MODULE_PATH             := $(PRODUCT_OUT)/utilities
 LOCAL_C_INCLUDES              := $(LOCAL_PATH)/../include \
                                  $(LOCAL_PATH)/../util_lib/include \
                                  $(LOCAL_PATH)/arch/arm/include \
+                                 $(LOCAL_PATH)/libfdt \
                                  external/zlib
 LOCAL_SRC_FILES               := kexec.c ifdown.c kexec-elf.c \
                                  kexec-elf-exec.c kexec-elf-core.c \
@@ -23,7 +24,9 @@ LOCAL_SRC_FILES               := kexec.c ifdown.c kexec-elf.c \
                                  arch/arm/kexec-uImage-arm.c \
                                  arch/arm/kexec-arm.c \
                                  arch/arm/crashdump-arm.c kexec-uImage.c \
-                                 purgatory.c
+                                 purgatory.c fs2dt.c libfdt/fdt.c libfdt/fdt_ro.c \
+                                 libfdt/fdt_rw.c libfdt/fdt_strerror.c \
+                                 libfdt/fdt_sw.c libfdt/fdt_wip.c
 LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_STATIC_LIBRARIES        := libktutil libz libc
 include $(BUILD_EXECUTABLE)
